@@ -1,15 +1,11 @@
-FROM node:18-alpine
+FROM alpine:3.18
 
 ARG KEYCLOAK_VERSION=1.0.0
 ENV APP_VERSION=$KEYCLOAK_VERSION
 
 WORKDIR /app
 
-COPY package*.json ./
-RUN npm install --production
+COPY app.sh /app/
+RUN chmod +x /app/app.sh
 
-COPY . .
-
-EXPOSE 3000
-
-CMD ["node", "app.js"] 
+CMD ["/app/app.sh"] 

@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 set -e
 echo "Running global prebuild script for keycloak-sample-app..."
 if [ ! -d "quarkus/container" ]; then echo "ERROR: Required directory not found!"; exit 1; fi

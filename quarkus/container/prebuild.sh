@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 set -e
 
 echo "Running container prebuild script..."
@@ -8,11 +8,11 @@ echo "Preparing environment for Keycloak Sample App build..."
 echo "KEYCLOAK_VERSION=${KEYCLOAK_VERSION:-1.0.0}" > version.env
 
 # Simulate some prebuild tasks
-echo "Checking dependencies..."
-if [ -f "package.json" ]; then
-  echo "package.json found, ready for build"
+echo "Checking application script..."
+if [ -f "app.sh" ]; then
+  echo "app.sh found, ready for build"
 else
-  echo "ERROR: package.json not found!"
+  echo "ERROR: app.sh not found!"
   exit 1
 fi
 
