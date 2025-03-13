@@ -1,20 +1,12 @@
 global:
-  name: "keycloak-sample-app"
-  prebuild: ".archon/prebuild.sh"
-  build: ".archon/build.sh"
+  name: "minimal-sample-app"
+  prebuild: "echo 'Global prebuild complete'"
+  build: "echo 'Global build complete'"
 deployments:
-  - name: "keycloak-main"
-    tag: "testingryanarchon"
-    description: |-
-      This is the main Keycloak deployment.
+  - name: "minimal-deployment"
+    tag: "minimal"
+    description: "Minimal sample deployment"
     working-directory: "./quarkus/container"
-    prebuild: "prebuild.sh"
+    prebuild: "echo 'Deployment prebuild complete'"
     build:
       dockerfile: "Dockerfile"
-      args:
-        - "KEYCLOAK_VERSION=999.0.0-SNAPSHOT"
-    characteristics:
-      fips:
-        enabled: false
-        description: |-
-          FIPS mode is not enabled for this deployment. 
